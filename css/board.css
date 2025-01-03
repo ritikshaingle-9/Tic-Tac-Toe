@@ -25,6 +25,7 @@ body{
     margin: 11px;
     margin-top: 14px;
     background-color: tomato;
+    cursor: pointer;
 }
 .player-term{
     color: white;
