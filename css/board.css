@@ -1,0 +1,31 @@
+body{
+    background-image: url("./../images/bg-3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    margin-top: 50px;
+}
+.row{
+    height: 170px;
+    width: 500px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.box{
+    height: 140px;
+    width: 140px;
+    margin: 11px;
+    margin-top: 14px;
+    background-color: tomato;
+}
+.player-term{
+    color: white;
+}
