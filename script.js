@@ -1,4 +1,5 @@
 const board=[-1,-1,-1,-1,-1,-1,-1,-1];
+const name=document.getElementById('currentplayer');
 let currentplayer='x';
 
 function renderboard(){
@@ -7,10 +8,10 @@ function renderboard(){
    allboxes.forEach((boxelement,i)=>{
     if(board[i]==="x")
     {
-     boxelement.innerHTML='<img src=./../images/moon.png height="90px" width="90px"/>';
+     boxelement.innerHTML='<img src=./../images/moon.png height="60px" width="60px"/>';
     }
     else if(board[i]==="o"){
-     boxelement.innerHTML='<img src=./../images/star.png height="90px" width="90px"/>';
+     boxelement.innerHTML='<img src=./../images/star.png height="60px" width="60px"/>';
     }
     else{
     boxelement.innerHTML='';
@@ -31,7 +32,6 @@ localStorage.setItem("player 2",nameoftwoplayer);
 function play(num){
    board[num]= currentplayer;
    renderboard();
-   const name=document.getElementById('currentplayer');
 
    if(currentplayer ==="x"){
       currentplayer="o";
@@ -41,4 +41,10 @@ function play(num){
       currentplayer ="x";
        name.innerHTML=localStorage.getItem("player 2");
    }
+}
+
+function resetgame(){
+   board.fill(-1);
+   renderboard();
+   name.innerHTML=localStorage.getItem("player 1");
 }

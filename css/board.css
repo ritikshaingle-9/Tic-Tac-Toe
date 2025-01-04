@@ -12,18 +12,18 @@ body{
     margin-top: 60px;
 }
 .row{
-    height: 170px;
-    width: 500px;
+    height: 150px;
+    width: 420px;
     background-color:#adc1eb;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .box{
-    height: 140px;
-    width: 140px;
+    height: 110px;
+    width: 110px;
     margin: 11px;
-    margin-top: 14px;
+    margin-top: 18px;
     background-color:#0a1429;
     cursor: pointer;
     display: flex;
@@ -36,5 +36,21 @@ body{
 }
 .player-term{
     color: white;
-    margin-top: 3px;
+    margin-top: -10px;
+}
+.reset-btn{
+    height: 50px;
+    width: 150px;
+    background: linear-gradient(to bottom right, #ffff00 0%, #ff6600 100%);
+    border: none;
+    color: black;
+    border-radius: 10px;
+    font-size: larger;
+    cursor: pointer;
+    margin-left: 690px;
+    margin-top: 30px;
+}
+.reset-btn:hover{
+    background: linear-gradient(to bottom right, #000066 0%, #ff00ff 100%);
+    color: white;
 }
