@@ -9,12 +9,12 @@ body{
     justify-content: center;
     align-items: center;
     margin: 10px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .row{
     height: 170px;
     width: 500px;
-    background-color: aliceblue;
+    background-color:#adc1eb;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -24,9 +24,17 @@ body{
     width: 140px;
     margin: 11px;
     margin-top: 14px;
-    background-color: tomato;
+    background-color:#0a1429;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.box:hover{
+    box-shadow: 0px 0px 17px 4px white;
 }
 .player-term{
     color: white;
+    margin-top: 3px;
 }
