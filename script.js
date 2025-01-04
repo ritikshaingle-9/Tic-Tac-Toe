@@ -1,5 +1,5 @@
 const board=[-1,-1,-1,-1,-1,-1,-1,-1];
-let currentplayer='x';
+let currentplayer="x";
 
 function renderboard(){
    const allboxes= document.querySelectorAll('.box');
@@ -71,53 +71,54 @@ function isplayerpresent(places,player){
    }
 
 function checkforwinner(){
-   if(isplayerpresent([0,1,2],"x")){
-      alert("player x wins");
+   const playerone = localStorage.getItem("player 1");
+   const playertwo = localStorage.getItem("player 2");
+   if (isplayerpresent([0, 1, 2], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([3, 4, 5], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([6, 7, 8], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([0, 3, 6], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([1, 4, 7], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([2, 5, 8], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([0, 4, 8], "x")) {
+       opendialogbox(playerone);
+   } else if (isplayerpresent([2, 4, 6], "x")) {
+       opendialogbox(playerone);
    }
-   else if(isplayerpresent([3,4,5],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([6,7,8],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([0,3,6],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([1,4,7],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([2,5,8],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([1,4,8],"x")){
-      alert("player x wins");
-   }
-   else if(isplayerpresent([2,4,6],"x")){
-      alert("player x wins");
-   }
+   else if (isplayerpresent([0, 1, 2], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([3, 4, 5], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([6, 7, 8], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([0, 3, 6], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([1, 4, 7], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([2, 5, 8], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([0, 4, 8], "o")) {
+      opendialogbox(playertwo);
+  } else if (isplayerpresent([2, 4, 6], "o")) {
+      opendialogbox(playertwo);
+  }
 }
 
-if(isplayerpresent([0,1,2],"o")){
-   alert("player x wins");
+
+function playagaingame(){
+   const overlayelement=document.getElementById('overlay');
+   overlayelement.style.display='none';
+   location.reload();
 }
-else if(isplayerpresent([3,4,5],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([6,7,8],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([0,3,6],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([1,4,7],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([2,5,8],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([1,4,8],"o")){
-   alert("player x wins");
-}
-else if(isplayerpresent([2,4,6],"o")){
-   alert("player x wins");
+
+function opendialogbox(player){
+   const overlayelement=document.getElementById('overlay');
+   const winnernameelement=document.getElementById('winnername');
+   winnernameelement.innerHTML=`${player} wins!!`;
+   overlayelement.style.display='flex';
 }
