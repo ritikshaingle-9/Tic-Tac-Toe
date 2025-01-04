@@ -1,5 +1,4 @@
 const board=[-1,-1,-1,-1,-1,-1,-1,-1];
-const name=document.getElementById('currentplayer');
 let currentplayer='x';
 
 function renderboard(){
@@ -29,22 +28,96 @@ localStorage.setItem("player 1",nameofoneplayer);
 localStorage.setItem("player 2",nameoftwoplayer);
 }
 
-function play(num){
+function selectbox(num){
+   
+   if(board[num] != -1){
+      alert("Invalid Move");
+      return;
+   }
    board[num]= currentplayer;
    renderboard();
+   const currentplayername=document.getElementById('currentplayer');
 
    if(currentplayer ==="x"){
       currentplayer="o";
-      name.innerHTML=localStorage.getItem("player 1");
+      currentplayername.innerHTML=localStorage.getItem("player 1");
    }
    else{
       currentplayer ="x";
-       name.innerHTML=localStorage.getItem("player 2");
+      currentplayername.innerHTML=localStorage.getItem("player 2");
+   }{
+      checkforwinner();
    }
 }
+
 
 function resetgame(){
    board.fill(-1);
    renderboard();
-   name.innerHTML=localStorage.getItem("player 1");
+   const currentplayername=document.getElementById('currentplayer');
+   currentplayername.innerHTML=localStorage.getItem("player 1");
+}
+
+function isplayerpresent(places,player){
+   const a = places[0];
+   const b = places[1];
+   const c = places[2];
+
+   if(board[a]==player && board[b]==player && board[c]==player){
+      return true;
+   } else{
+      return false;
+   }
+   }
+
+function checkforwinner(){
+   if(isplayerpresent([0,1,2],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([3,4,5],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([6,7,8],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([0,3,6],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([1,4,7],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([2,5,8],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([1,4,8],"x")){
+      alert("player x wins");
+   }
+   else if(isplayerpresent([2,4,6],"x")){
+      alert("player x wins");
+   }
+}
+
+if(isplayerpresent([0,1,2],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([3,4,5],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([6,7,8],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([0,3,6],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([1,4,7],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([2,5,8],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([1,4,8],"o")){
+   alert("player x wins");
+}
+else if(isplayerpresent([2,4,6],"o")){
+   alert("player x wins");
 }
