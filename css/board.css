@@ -70,6 +70,7 @@ body{
     width: 420px;
     background: linear-gradient(to bottom right, #000066 0%, #ff00ff 100%);
     color: white;
+    border-radius: 10px;
 }
 .congrats-text{
     text-align: center;
@@ -93,13 +94,13 @@ body{
     cursor: pointer;
 }
 .yesno-btn:hover{
-    box-shadow: 0px 0px 10px 2px rgb(201, 196, 196);
+    box-shadow: 0px 0px 9px 3px rgb(187, 179, 179);
 }
 .no{
-    background-color:red;
+    background-color:#ff0000;
 }
 .yes{
-    background-color:green;
+    background-color:rgb(47, 248, 47);
 }
 .winnername{
     font-family:cursive;
@@ -133,16 +134,10 @@ body{
 .exit-btn{
     height: 40px;
     width: 100px;
-    border: none;
-    border-radius: 4px;
-    background-color: red;
     color: white;
     font-size: 17px;
     position: fixed;
     left: 20px;
     top: 20px;
     cursor: pointer;
-}
-.exit-btn:hover{
-    box-shadow: 0px 0px 9px 3px rgb(187, 179, 179);
 }
