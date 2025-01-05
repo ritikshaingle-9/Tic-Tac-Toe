@@ -1,4 +1,4 @@
-const board=[-1,-1,-1,-1,-1,-1,-1,-1];
+const board=[-1,-1,-1,-1,-1,-1,-1,-1,-1];
 let currentplayer="x";
 
 function renderboard(){
@@ -24,8 +24,16 @@ const playerone = document.getElementById('playerone');
 const playertwo = document.getElementById('playertwo');
 const nameofoneplayer = playerone.value;
 const nameoftwoplayer = playertwo.value;
+
 localStorage.setItem("player 1",nameofoneplayer);
 localStorage.setItem("player 2",nameoftwoplayer);
+}
+displayplayername();
+
+function displayplayername(){
+    const playee=localStorage.getItem("player 1");
+    const currentplayerelement=document.getElementById('currentplayer');
+    currentplayerelement.innerHTML=playee;
 }
 
 function selectbox(num){
@@ -40,14 +48,14 @@ function selectbox(num){
 
    if(currentplayer ==="x"){
       currentplayer="o";
-      currentplayername.innerHTML=localStorage.getItem("player 1");
+      currentplayername.innerHTML=localStorage.getItem("player 2");
    }
    else{
       currentplayer ="x";
-      currentplayername.innerHTML=localStorage.getItem("player 2");
-   }{
-      checkforwinner();
+      currentplayername.innerHTML=localStorage.getItem("player 1");
    }
+    checkforwinner();
+   
 }
 
 
@@ -71,42 +79,61 @@ function isplayerpresent(places,player){
    }
 
 function checkforwinner(){
-   const playerone = localStorage.getItem("player 1");
-   const playertwo = localStorage.getItem("player 2");
-   if (isplayerpresent([0, 1, 2], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([3, 4, 5], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([6, 7, 8], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([0, 3, 6], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([1, 4, 7], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([2, 5, 8], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([0, 4, 8], "x")) {
-       opendialogbox(playerone);
-   } else if (isplayerpresent([2, 4, 6], "x")) {
-       opendialogbox(playerone);
-   }
-   else if (isplayerpresent([0, 1, 2], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([3, 4, 5], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([6, 7, 8], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([0, 3, 6], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([1, 4, 7], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([2, 5, 8], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([0, 4, 8], "o")) {
-      opendialogbox(playertwo);
-  } else if (isplayerpresent([2, 4, 6], "o")) {
-      opendialogbox(playertwo);
-  }
+const playerone=localStorage.getItem("player 1");
+const playertwo=localStorage.getItem("player 2");
+
+console.log("playerone is:",playerone);
+console.log("playertwo is:",playertwo);
+
+    if(isplayerpresent([0,1,2],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([3,4,5],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([6,7,8],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([0,3,6],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([1,4,7],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([2,5,8],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([0,4,8],"x")){
+        opendialogbox(playerone);
+    }
+    else if(isplayerpresent([2,4,6],"x")){
+        opendialogbox(playerone);
+    }
+
+    if(isplayerpresent([0,1,2],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([3,4,5],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([6,7,8],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([0,3,6],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([1,4,7],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([2,5,8],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([0,4,8],"o")){
+        opendialogbox(playertwo);
+    }
+    else if(isplayerpresent([2,4,6],"o")){
+        opendialogbox(playertwo);
+    }
 }
 
 
@@ -116,9 +143,10 @@ function playagaingame(){
    location.reload();
 }
 
-function opendialogbox(player){
+function opendialogbox(winningplayer){
    const overlayelement=document.getElementById('overlay');
    const winnernameelement=document.getElementById('winnername');
-   winnernameelement.innerHTML=`${player} wins!!`;
+   console.log("winner player is",winningplayer);
    overlayelement.style.display='flex';
+   winnernameelement.innerHTML= winningplayer;
 }
